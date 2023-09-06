@@ -21,7 +21,7 @@ defaultContentLanguage = "en"           # Default language to use
   languageCode = "en"
 
 [author]
-  name = "xianmin"        # essential                     # 必需
+  name = "大白猫"        # essential                     # 必需
   url = "/about"          # optional                      # 可选
 
 [sitemap]                 # essential                     # 必需
