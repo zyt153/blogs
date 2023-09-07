@@ -3,8 +3,8 @@ title: "对象存储vs文件存储"
 date: 2023-09-03T22:20:27+08:00
 lastmod: 2023-09-06T16:02:19+08:00
 draft: false
-tags: ["technology", "objectStorage"]
-categories: ["objectStorage"]
+tags: ["technology", "object-storage"]
+categories: ["object-storage"]
 author: "大白猫"
 ---
 
