@@ -10,3 +10,7 @@ mathjax: false
 ---
 
 Hey! This is Big White Cat!
+
+Graduated from Beijing University of Posts and Telecommunications (Master) & Beijing Jiaotong University (Bachelor).
+
+Now working at VMware.
