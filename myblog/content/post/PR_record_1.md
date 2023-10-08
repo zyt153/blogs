@@ -1,6 +1,7 @@
 ---
-title: "一次漫长的customer case问题定位"
+title: "一次漫长的customer case问题定位 - OOM"
 date: 2023-09-17T11:36:59+08:00
+lastmod: 2023-09-21T22:35:44+08:00
 draft: false
 tags: ["technology", "pr"]
 categories: ["pr"]
@@ -152,11 +153,11 @@ repository.deleteByAAA(aaa)
 
 这个发现看起来十分符合逻辑，于是参考[Deleting 1 millions rows in SQL Server](https://stackoverflow.com/questions/24785439/deleting-1-millions-rows-in-sql-server)以及[Deleting Objects with Hibernate](https://www.baeldung.com/delete-with-hibernate)提出了几种优化方案：
 
-**方案1：**先`select count(*)`计算要被删除的数据数量，一旦超过某个量级就分批删除
+**方案1:** 先`select count(*)`计算要被删除的数据数量，一旦超过某个量级就分批删除
 
-**方案2：**使用Native Query删除
+**方案2:** 使用Native Query删除
 
-**方案3：**设置一个delete标志位，暂时不会真正将数据删除，只是查询的时候忽略，等系统空闲时再逐步删除
+**方案3:** 设置一个delete标志位，暂时不会真正将数据删除，只是查询的时候忽略，等系统空闲时再逐步删除
 
 因为方案2的改动最小，所以从方案2开始验证。于是我将原来的方法改为了Native Query：
 
@@ -173,6 +174,9 @@ void deleteByAAA(@Param("aaa") String aaa);
 
 {{< figure src="/image/java-heap-2.png" >}}
 
-对于第一张图，在我手动结束应用进程前，heap占用不断增大的状况并没有停止。而Native Query的delete操作并没有带来明显的内存消耗，在等待了两分钟左右后我进行数据库查询，发现这一千万条数据已经被删掉了。**这说明大规模的delete操作确实很可能是造成OOM、进而导致Quartz崩溃的根源，而Native Query可以改善这一问题。**至于服务重启失败，我认为很有可能和数据库“失联”有关。
+对于第一张图，在我手动结束应用进程前，heap占用不断增大的状况并没有停止。而Native Query的delete操作并没有带来明显的内存消耗，在等待了两分钟左右后我进行数据库查询，发现这一千万条数据已经被删掉了。这说明**大规模的delete操作确实很可能是造成OOM、进而导致Quartz崩溃的根源，而Native Query可以改善这一问题**。至于服务重启失败，我认为很有可能和数据库“失联”有关。
 
 目前已经将hot fix提交给客户，希望这能帮他们从根本上解决问题。......please
+
+（两周后续：客户应用了这一更改，目前没有问题反馈）
+
