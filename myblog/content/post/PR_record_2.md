@@ -11,7 +11,7 @@ author: "大白猫"
 
 ## 问题描述
 
-客户在尝试获取object storage中的一个json文件时出**FixedLengthOverflowException**：
+客户在尝试获取object storage中的一个json文件时出现**FixedLengthOverflowException**：
 ```java
 [task] ERROR org.xnio.channels.FixedLengthOverflowException: null
 at io.undertow.conduits.AbstractFixedLengthStreamSinkConduit.write(AbstractFixedLengthStreamSinkConduit.java:100)

@@ -1,0 +1,2 @@
+2023-12-15 16:09:14.325 CST [44949] LOG:  redirecting log output to logging collector process
+2023-12-15 16:09:14.325 CST [44949] HINT:  Future log output will appear in directory "log".
