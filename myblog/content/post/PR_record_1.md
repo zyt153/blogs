@@ -3,7 +3,7 @@ title: "一次漫长的customer case问题定位 - OOM"
 date: 2023-09-17T11:36:59+08:00
 lastmod: 2023-09-21T22:35:44+08:00
 draft: false
-tags: ["technology", "pr"]
+tags: ["pr"]
 categories: ["pr"]
 author: "大白猫"
 ---

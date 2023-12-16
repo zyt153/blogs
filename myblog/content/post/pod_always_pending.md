@@ -3,7 +3,7 @@ title: "K8s - Solve pod is always pending"
 date: 2023-12-15T14:38:06+08:00
 lastmod: 2023-12-15T14:38:06+08:00
 draft: false
-tags: ["technology", "k8s"]
+tags: ["troubleshoot", "k8s"]
 categories: ["k8s"]
 author: "大白猫"
 ---
@@ -21,7 +21,7 @@ kind-worker          Ready    <none>          24h   v1.27.3
 
 Then use `make run` to start and deploy a service. However, when I used `kubectl get all -n ns` to check the status of the service, I found that there is 0/1 pod READY and its STATUS is always *pending*. Also, the replicaset and deployment is not ready.
 
-## Trouble-shooting Step
+## Trouble-shooting
 
 Describe the pod and check the events:
 

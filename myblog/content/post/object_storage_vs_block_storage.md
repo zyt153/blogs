@@ -3,7 +3,7 @@ title: "对象存储vs块存储"
 date: 2023-09-07T13:13:09+08:00
 lastmod: 2023-010-08T11:18:19+08:00
 draft: false
-tags: ["technology", "object-storage"]
+tags: ["study", "object-storage"]
 categories: ["object-storage"]
 author: "大白猫"
 ---

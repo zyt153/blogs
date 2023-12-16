@@ -2,7 +2,7 @@
 title: "Customer case - content length is zero"
 date: 2023-10-08T16:15:32+08:00
 draft: false
-tags: ["technology", "pr"]
+tags: ["pr"]
 categories: ["pr"]
 author: "大白猫"
 ---
