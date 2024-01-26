@@ -3,7 +3,7 @@ title: "K8s - Solve pod is always pending"
 date: 2023-12-15T14:38:06+08:00
 lastmod: 2023-12-15T14:38:06+08:00
 draft: false
-tags: ["troubleshoot", "k8s"]
+tags: ["k8s", "troubleshoot"]
 categories: ["k8s"]
 author: "大白猫"
 ---
@@ -59,7 +59,9 @@ colima start --edit
 
 Expand the cpu to 4 and the memory to 8 GB. Then the cpu and memory limitation is updated in node. (But the MemoryPressure, DiskPressure and PIDPressure still exist with False, why?)
 
-For issue#3, in node `kind-control-plane` there is a taint: `Taints: node-role.kubernetes.io/control-plane:NoSchedule`. There are two ways to resolve it:
+For issue#3, in node `kind-control-plane` there is a taint: `Taints: node-role.kubernetes.io/control-plane:NoSchedule`. Node `kind-work` has no taint. Actually, after applying the above changes, the pod can be scheduled to the worker node in my case. Just in case, here’s how to deal with taints.
+
+There are two ways to resolve the taint:
 
 * Delete the taint in node (Not recommend)
   ``` bash
@@ -69,7 +71,7 @@ For issue#3, in node `kind-control-plane` there is a taint: `Taints: node-role.k
 
   (mind that there is a `-` at the end)
 
-* Add taint tolerance on pod (I never tried)
+* Add taint tolerance on pod
   ```bash
   kubectl edit deployment deployment-name -n ns
   ```

@@ -3,7 +3,7 @@ title: "一次漫长的customer case问题定位 - OOM"
 date: 2023-09-17T11:36:59+08:00
 lastmod: 2023-09-21T22:35:44+08:00
 draft: false
-tags: ["pr"]
+tags: ["pr", "troubleshoot"]
 categories: ["pr"]
 author: "大白猫"
 ---
@@ -149,7 +149,7 @@ repository.deleteByAAA(aaa)
  void deleteByAAA(String aaa);
 ```
 
-这里JOB1用来定时清空一些数据库中无用的数据，数据库靠Hibernate JPA连接。和客户求证后发现，他们在进行这个操作时需要删除上千万行记录，直接使用Hibernate方法会使得这些记录先load到内存中，导致OOM。
+这里JOB1用来定时清空一些数据库中无用的数据，数据库靠Hibernate JPA连接。和客户求证后发现，他们在进行这个操作时需要删除某张表中的上千万行记录，直接使用Hibernate方法会使得这些记录先load到内存中，导致OOM。
 
 这个发现看起来十分符合逻辑，于是参考[Deleting 1 millions rows in SQL Server](https://stackoverflow.com/questions/24785439/deleting-1-millions-rows-in-sql-server)以及[Deleting Objects with Hibernate](https://www.baeldung.com/delete-with-hibernate)提出了几种优化方案：
 

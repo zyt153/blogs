@@ -13,10 +13,10 @@ author: "大白猫"
 
 ## Practice in Github
 
-- [CKA Practice Exercises](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Fgithub.com%2Falijahnas%2FCKA-practice-exercises&source=article&objectId=2063371)
-- [Kubernetes Certified Administration](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Fgithub.com%2Fwalidshaari%2FKubernetes-Certified-Administrator&source=article&objectId=2063371)
-- [K8s Practice Training](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Fgithub.com%2FStenlyTU%2FK8s-training-official&source=article&objectId=2063371)
-- [Awesome Kubernetes](https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Fgithub.com%2Framitsurana%2Fawesome-kubernetes&source=article&objectId=2063371)
+- [CKA Practice Exercises](https://github.com/alijahnas/CKA-practice-exercises)
+- [Kubernetes Certified Administration](https://github.com/walidshaari/Kubernetes-Certified-Administrator)
+- [K8s Practice Training](https://github.com/StenlyTU/K8s-training-official)
+- [Awesome Kubernetes](https://github.com/ramitsurana/awesome-kubernetes)
 
 ## Some Blogs
 
